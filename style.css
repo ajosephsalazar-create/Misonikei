@@ -1,0 +1,1316 @@
+/* ======================================================
+   RESET BÁSICO Y ESTILOS GENERALES
+====================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base para rem */
+}
+
+body {
+    font-family: var(--fuente-principal);
+    line-height: 1.6;
+    color: var(--color-texto-oscuro);
+    /* **ESTO ES LO QUE DEBES CAMBIAR/VERIFICAR:** */
+    background-image: url('../img/pop.jpg'); /* Ruta a tu imagen */
+    background-repeat: no-repeat;
+    background-size: cover; /* Cubre todo el área, puede recortar bordes de la imagen */
+    background-attachment: fixed; /* La imagen de fondo se queda fija al hacer scroll */
+    background-position: center center; /* Centra la imagen */
+    /* Si quieres un color de fondo de respaldo mientras carga la imagen o si la imagen falla */
+    background-color: var(--color-fondo-claro);
+    
+    overflow-x: hidden; /* Previene el scroll horizontal */
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Hereda el color del padre por defecto */
+}
+/* ======================================================
+   CONTENEDORES GENERALES
+====================================================== */
+.container,
+.footer-container,
+.header-flex,
+.cards,
+.hero-buttons {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--espaciado);
+}
+
+section {
+  padding: var(--espaciado) 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ======================================================
+   HEADER / NAV
+====================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color:rgba(255,255,255,0.75);/* blanco con transparencia */
+  backdrop-filter: blur(6px); /* efecto desenfoque detrás */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--color-principal);
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--color-texto);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: var(--color-principal);
+}
+
+.nav-list a:focus {
+  outline: 2px dashed var(--color-principal);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* ======================================================
+   HERO / BIENVENIDA
+====================================================== */
+.bienvenida {
+  background: linear-gradient(rgba(255, 245, 225, 0.65), rgba(255, 245, 225, 0.65)),
+    url('./img/cocina_nikkei.jpg') center/cover no-repeat;
+  text-align: center;
+  padding: 5rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 450px;
+  color: var(--color-texto);
+}
+
+.bienvenida-contenido {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bienvenida h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--color-principal);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.bienvenida h3 {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+  color: #333;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ======================================================
+   BOTONES GENERALES
+====================================================== */
+.btn {
+  background: var(--color-boton);
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--color-hover);
+  transform: scale(1.05);
+}
+
+.btn.btn-secundario {
+  background: transparent;
+  color: var(--color-principal);
+  border: 2px solid var(--color-principal);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn.btn-secundario:hover {
+  background: var(--color-principal);
+  color: white;
+}
+
+/* Botón flotante */
+.btn-flotante {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-principal);
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  z-index: 1000;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-flotante:hover {
+  background-color: var(--color-hover);
+  transform: scale(1.1);
+}
+
+
+/* ======================================================
+   SECCIÓN CARACTERÍSTICAS
+====================================================== */
+.caracteristicas .cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.caracteristica-card,
+.card {
+  background: #fffaf5;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  max-width: 320px;
+  flex: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.caracteristica-card:hover,
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.caracteristica-card img {
+  width: 70px;
+  margin-bottom: 1rem;
+}
+
+.caracteristica-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--color-principal);
+}
+
+.caracteristica-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ======================================================
+   COMENTARIOS / TESTIMONIOS
+====================================================== */
+.comentarios-carousel {
+  background-color: #fff5ef;
+  padding: var(--espaciado) 0;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 2rem 0;
+}
+
+.carousel-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+  background-color: rgba(136, 14, 14, 0.3);
+  border-radius: 3px;
+}
+
+.testimonial {
+  flex: 0 0 calc(33.333% - 1.5rem);
+  background: #fff;
+  padding: 1.8rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+  font-style: italic;
+  text-align: center;
+}
+
+.testimonial:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial small {
+  display: block;
+  font-weight: bold;
+  color: var(--color-principal);
+}
+
+/* Flechas del carrusel */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-principal);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: var(--color-hover);
+}
+
+.carousel-btn.prev {
+  left: 0;
+}
+
+.carousel-btn.next {
+  right: 0;
+}
+
+/* ======================================================
+   SECCIÓN NUESTRO IMPACTO
+====================================================== */
+.impacto {
+  background: linear-gradient(to right, #fff5e7, #ffe3dc);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 1rem;
+  margin-top: 3rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.impacto-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.impacto-item {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  width: 250px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.impacto-item:hover {
+  transform: translateY(-6px);
+}
+
+.impacto-item h3 {
+  font-size: 2.5rem;
+  color: var(--color-principal);
+  margin-bottom: 0.5rem;
+}
+
+.impacto-item p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* ======================================================
+   RESERVAS / FORMULARIO
+====================================================== */
+.reservas {
+  background: linear-gradient(145deg, #fff3f3, #ffeaea);
+  padding: 4rem 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  margin-top: 4rem;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.4s ease;
+}
+
+.reservas h2 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-principal);
+}
+
+.reservas p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #555;
+  font-style: italic;
+}
+
+.formulario-reserva {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: inset 0 0 0 2px #fff0f0;
+  position: relative;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-principal);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-group label i {
+  color: var(--color-principal);
+}
+
+.form-group input {
+  padding: 0.75rem 1rem;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--color-principal);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(136, 14, 14, 0.1);
+}
+
+.formulario-reserva .btn {
+  grid-column: span 2;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2.5rem;
+  font-size:1.1rem;
+}
+
+
+/* ======================================================
+   UBICACIÓN
+====================================================== */
+.ubicacion {
+  background: linear-gradient(to left, #fff3ec, #ffe8e1);
+  padding: 4rem 1rem;
+  border-radius: 1rem;
+  margin-top: 3rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+
+.ubicacion-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ubicacion-texto {
+  flex: 1 1 300px;
+}
+
+.ubicacion-texto h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-principal);
+}
+
+.ubicacion-texto p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.ubicacion-texto a.btn {
+  margin-top: 1rem;
+}
+
+.ubicacion-imagen {
+  flex: 1 1 350px;
+  text-align: center;
+}
+
+.ubicacion-imagen .mapa {
+  border: 2px solid #ddd;
+  border-radius: 0.75rem;
+  max-width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.ubicacion-imagen .mapa:hover {
+  transform: scale(1.03);
+}
+
+
+/* ======================================================
+   FOOTER
+====================================================== */
+footer {
+  background: var(--color-principal);
+  color: white;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.footer-brand,
+.footer-links,
+.footer-contacto {
+  flex: 1 1 250px;
+}
+
+.footer-brand img {
+  margin-bottom: 1rem;
+}
+
+.footer-brand p {
+  max-width: 300px;
+  margin-bottom: 1rem;
+  color: #ffe;
+}
+
+.footer-links h4,
+.footer-contacto h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #fcecec;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-contacto p {
+  margin: 0.5rem 0;
+  color: #f0e0e0;
+}
+
+.rrss a {
+  margin-right: 1rem;
+  display: inline-block;
+}
+
+.copy {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: #eee;
+  opacity: 0.85;
+}
+
+/* ======================================================
+   SUBCATEGORÍAS DEL MENÚ
+====================================================== */
+.nav-subcategorias {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-top: 2rem;
+}
+
+.cards-menu h3 {
+  text-align: center;
+  margin: 30px 0 15px;
+}
+
+.cards-menu .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cards-menu .card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  padding: 10px;
+  max-width: 200px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cards-menu .card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.precio {
+  color: green;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* ======================================================
+   ANIMACIONES
+====================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.fade-in-top {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInTop 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInTop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+
+
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  flex: 1 1 300px;
+  max-width: 500px;
+}
+
+.cultura-horizontal {
+  padding: 3rem 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.cultura-bloque {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.cultura-imagen {
+  flex: 1 1 300px;
+}
+
+.cultura-imagen img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px rgba(236, 233, 233, 0.1);
+}
+
+.cultura-texto {
+  flex: 1 1 300px;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.titulo-derecha {
+  text-align: right;
+}
+
+.horario-reloj {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.horario-reloj h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.horario-reloj ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.horario-reloj ul li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.footer {
+  background: var(--color-principal);
+  color: white;
+  padding: 3rem 1rem;
+  margin-top: 2rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 2rem 0;
+}
+
+.footer-container > div {
+  flex: 1;
+  padding-right: 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-container > div:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.footer-brand img {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.footer-brand p {
+  max-width: 300px;
+  margin-bottom: 1.2rem;
+  color: #ffe;
+}
+
+.rrss a img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.rrss a:hover img {
+  transform: scale(1.15);
+  filter: brightness(1.2);
+}
+
+.footer-links h4,
+.footer-contacto h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #fcecec;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-contacto p {
+  margin: 0.5rem 0;
+  color: #f0e0e0;
+}
+
+.copy {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #ffe;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+.hecho-por {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #fff9f9;
+  opacity: 0.9;
+  font-style: italic;
+  letter-spacing: 0.3px;
+}
+
+.submenu-lateral {
+  position: fixed;
+  top: 120px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+.submenu-lateral a {
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: var(--color-principal);
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.submenu-lateral a:hover {
+  transform: scale(1.2);
+  color: var(--color-hover);
+}
+
+.submenu-lateral a.activo {
+  background: var(--color-principal);
+  color: white;
+  border-radius: 50%;
+  padding: 0.3rem 0.5rem;
+}
+
+/* Menú de secciones del menú */
+.nav-subcategorias {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.nav-link {
+  padding: 0.6rem 1.2rem;
+  background-color: #fff4f4;
+  color: var(--color-principal);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #ffeaea;
+  border-color: var(--color-boton);
+  transform: scale(1.05);
+}
+
+.nav-link.active {
+  background-color: var(--color-principal);
+  color: white;
+  border-color: var(--color-principal);
+}
+
+/* ======================================================
+   SECCIÓN MÚSICA NIKKEI
+====================================================== */
+.playlist-nikkei {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem 1rem;
+  background: linear-gradient(to right, #fff5e1, #fbe4d2);
+  border-radius: 1rem;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+.playlist-nikkei h2 {
+  font-size: 2rem;
+  color: var(--color-principal);
+  margin-bottom: 0.5rem;
+}
+
+.playlist-nikkei p {
+  color: #555;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.playlist-nikkei iframe {
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal:target {
+  display: flex;
+}
+
+.modal-contenido {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  animation: fadeInUp 0.6s ease-out;
+  position: relative;
+  text-align: left;
+}
+
+.modal-contenido h2 {
+  color: var(--color-principal);
+  margin-bottom: 1rem;
+}
+
+.modal-contenido ul {
+  padding-left: 1.5rem;
+  list-style: disc;
+  color: #444;
+}
+
+.modal-contenido p {
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.modal .cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  font-size: 2rem;
+  color: var(--color-principal);
+  text-decoration: none;
+}
+
+.rrss-icon {
+  font-size: 1.5rem;
+  color: white;
+  background-color: var(--color-principal); /* usa el rojo institucional */
+  padding: 0.6rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  display: inline-block;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.rrss-icon:hover {
+  transform: scale(1.1);
+  background-color: var(--color-hover); /* rojo más oscuro */
+}
+
+.rrss-icon.facebook {
+  background-color: #b71c1c; /* rojo oscuro, combina con tu sitio */
+}
+
+.rrss-icon.instagram {
+  background-color: #c62828; /* tono intermedio, elegante */
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 248, 240, 0.85); /* tu color secundario con transparencia */
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  padding: 1rem 0.5rem; /* más altura vertical */
+  transition: all 0.3s ease;
+}
+
+/* Mejora en el contenedor interno */
+.header-flex {
+  padding: 0.5rem 2rem; /* más espacio lateral */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Mejora para logo (más separado del borde) */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--color-principal);
+}
+
+.logo img {
+  max-height: 65px;
+  border-radius: 10px;
+}
+/* Cart Icon in Header */
+.cart-icon-container {
+  position: relative;
+  margin-left: 20px;
+}
+
+.cart-icon {
+  font-size: 1.5rem;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.cart-icon:hover {
+  color: #a30000; /* Example hover color */
+}
+
+.cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #e74c3c; /* Red color for notification */
+  color: white;
+  border-radius: 50%;
+  padding: 2px 7px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px; /* Ensure circular shape for single digits */
+  height: 20px;
+}
+
+/* Add to Cart Button */
+.add-to-cart-button {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #45a049;
+}
+
+/* General Modal Styles (Applies to both cart and terms modals) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000; /* High z-index to appear on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6); /* Darker overlay */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido {
+  background-color: #fefefe;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.cerrar {
+  color: #aaa;
+  font-size: 32px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+  color: #333;
+  cursor: pointer;
+}
+
+/* Cart Specific Styles */
+#cartModal h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-family: 'Yeseva One', serif;
+}
+
+.cart-items-list {
+  list-style: none;
+  padding: 0;
+  max-height: 300px; /* Make list scrollable if many items */
+  overflow-y: auto;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+.cart-items-list li {
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: #555;
+}
+
+.item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between buttons and quantity number */
+}
+
+.quantity-btn {
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.quantity-btn:hover {
+  background-color: #ccc;
+}
+
+.item-total {
+  font-weight: bold;
+  color: #333;
+  white-space: nowrap; /* Prevent price from wrapping */
+}
+
+.cart-summary {
+  margin-top: 20px;
+  padding-top: 15px;
+  text-align: right;
+  border-top: 1px solid #eee;
+}
+
+.cart-summary p {
+  margin: 8px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.checkout-button {
+  background-color: #008CBA; /* Blue */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-button:hover {
+  background-color: #007bb5;
+}
+
+#cartEmptyMessage {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  font-style: italic;
+}
+/* Estilos para el botón flotante de RESERVAS */
+.btn-flotante {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* ESTE ES EL CAMBIO CLAVE para moverlo a la izquierda */
+    
+    /* Asegúrate de que el z-index sea menor que el del chatbot (999 o menos) */
+    z-index: 998; 
+
+    width: 60px; /* Ajusta el tamaño si lo tenías diferente */
+    height: 60px; /* Ajusta el tamaño si lo tenías diferente */
+    background-color: #f0a0a0; /* Color principal de Miso, puedes ajustarlo si es diferente */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(221, 129, 129, 0.2); /* Sombra suave, consistente con el chatbot */
+    cursor: pointer;
+    font-size: 1.8rem; /* Tamaño del icono */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    text-decoration: none; /* Asegura que no tenga subrayado si es un <a> */
+}
+
+.btn-flotante:hover {
+    background-color: #e9b0b0; /* Color un poco más claro al pasar el ratón */
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(221, 129, 129, 0.3);
+}
+
+/* Si tienes media queries específicas para .btn-flotante, ajústalas también */
+@media (max-width: 768px) {
+    .btn-flotante {
+        bottom: 15px;
+        left: 15px; /* Ajuste para móviles, si quieres mantener el margen */
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
+    }
+}

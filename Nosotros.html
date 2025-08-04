@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nosotros | MISO Cocina Nikkei</title>
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Poppins&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/chatbot.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <header class="header-flex container fade-in-top">
+        <a href="index.html" class="logo" aria-label="Ir al inicio de Miso Cocina Nikkei">
+            <img src="./img/logo.jpeg" alt="Logo Miso Cocina Nikkei" width="65" />
+            <h1>Miso Cocina Nikkei</h1>
+        </a>
+
+        <nav aria-label="Menú principal">
+            <ul class="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Menu.html">Menú</a></li>
+                <li><a href="Nosotros.html">Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container fade-in-up">
+        <section>
+            <h2 class="titulo-derecha">3 años de trayectoria culinaria</h2>
+            <div class="cards">
+                <div class="card">
+                    <p>
+                        Nuestro restaurante goza de una trayectoria de 3 años en el arte de la comida japonesa,
+                        ofreciendo a nuestros clientes una experiencia única con platillos tradicionales y
+                        contemporáneos. Contamos con un equipo de chefs altamente calificados, apasionados por la
+                        autenticidad y la innovación gastronómica.
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="./img/historia.jpeg" alt="Equipo Miso">
+                </div>
+            </div>
+        </section>
+
+        <section class="cultura-horizontal">
+            <h2>Nuestra Cultura</h2>
+            <div class="cultura-bloque">
+                <div class="cultura-imagen">
+                    <img src="./img/lugar.jpg" alt="Lugar Miso">
+                </div>
+                <div class="cultura-texto">
+                    <p>
+                        En MISO, nuestra cultura fusiona respeto, tradición y creatividad. Cada detalle del local está
+                        inspirado en la armonía japonesa y la calidez peruana. Creemos que la experiencia no solo está
+                        en el sabor, sino también en la conexión que creamos con quienes nos visitan.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+            <h2 class="titulo-derecha">Con la Familia</h2>
+            <div class="cards">
+                <div class="card">
+                    <p>Creemos que los mejores momentos de la vida se disfrutan en torno a la mesa, compartiendo con
+                        quienes más queremos. Por eso, hemos creado un ambiente acogedor donde las familias pueden
+                        reunirse
+                        y disfrutar de platillos deliciosos servidos con amor.
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="./img/familia.jpg" alt="Familia en Miso">
+                </div>
+            </div>
+        </section>
+
+        <section class="section-title">
+            <h2>Visión</h2>
+            <p>
+                En nuestro restaurante, nos dedicamos a enriquecer la experiencia gastronómica de nuestros clientes a
+                través de
+                la auténtica cocina Nikkei. Creemos en ofrecer platos que no solo deleiten el paladar, sino que también
+                cuenten
+                historias de fusión cultural.
+            </p>
+        </section>
+
+        <section class="section-title">
+            <h2>Misión</h2>
+            <p>
+                Nuestra misión es ofrecer a cada cliente una experiencia inolvidable a través de productos de alta
+                calidad,
+                elaborados con pasión, compromiso y los más altos estándares de frescura e higiene.
+            </p>
+        </section>
+    </main>
+    <section class="reservas fade-in-up" id="reservas">
+        <h2>Reserva tu mesa</h2>
+        <p>Completa el formulario y asegura tu lugar en nuestra experiencia Nikkei.</p>
+        <form class="formulario-reserva">
+            <div class="form-group">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" required minlength="3" maxlength="60"
+                    placeholder="Ej. Ana Gómez" />
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{9}" placeholder="9 dígitos" />
+            </div>
+
+            <div class="form-group">
+                <label for="personas">Número de personas</label>
+                <input type="number" id="personas" name="personas" min="1" max="8" required
+                    placeholder="1 - 8 personas" />
+            </div>
+
+            <div class="form-group">
+                <label for="hora">Hora deseada</label>
+                <input type="time" id="hora" name="hora" required min="15:00" max="23:00" />
+                <small style="color: gray;">* Horario permitido: 15:00 a 23:00</small>
+            </div>
+
+            <button type="submit" class="btn">Enviar solicitud</button>
+        </form>
+
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer-brand">
+                <img src="./img/logo.jpeg" alt="Logo Miso" width="60" />
+                <p>Fusión de cultura, tradición y sabor. Vive la experiencia Nikkei con nosotros.</p>
+                <div class="rrss">
+                    <a href="https://www.facebook.com/p/Miso-Street-Nikkei-100064955231099/" target="_blank"
+                        aria-label="Facebook" class="rrss-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/misonikkei/" target="_blank" aria-label="Instagram"
+                        class="rrss-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="Nosotros.html#reservas">Reservas</a></li>
+                    <li><a href="https://www.rappi.com.pe/restaurantes/61289-miso-cocina-nikkei" target="_blank"
+                            rel="noopener noreferrer">Pedidos</a></li>
+                    <li><a href="#" onclick="return false;">Pagos (próximamente)</a></li>
+                    <li><a href="#modal-terminos">Términos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contacto">
+                <h4>Contacto</h4>
+                <p><strong>Teléfono:</strong> +51 999 888 777</p>
+                <p><strong>Email:</strong> contacto@misonikkei.pe</p>
+                <p><strong>Dirección:</strong> Av. los Ficos 220, San Juan de Lurigancho</p>
+            </div>
+        </div>
+
+        <p class="copy">&copy; 2025 Miso Cocina Nikkei. Todos los derechos reservados.</p>
+        <p class="hecho-por">Hecho por el Grupo 6 — Joseph Salazar, Omar Oropeza y Piero Rojas.</p>
+    </footer>
+
+    <div id="modal-terminos" class="modal">
+        <div class="modal-contenido">
+            <a href="#!" class="cerrar" aria-label="Cerrar">&times;</a>
+            <h2>Términos y condiciones</h2>
+            <p>
+                Bienvenido a Miso Cocina Nikkei. Al utilizar nuestro sitio, aceptas los siguientes términos:
+            </p>
+            <ul>
+                <li>Las reservas están sujetas a disponibilidad y deben ser confirmadas por el restaurante.</li>
+                <li>Los datos ingresados en el formulario de reservas serán usados únicamente para gestionar tu atención.</li>
+                <li>No nos responsabilizamos por retrasos ocasionados por terceros en servicios de delivery.</li>
+                <li>Nos reservamos el derecho de modificar los platos o precios sin previo aviso.</li>
+                <li>El contenido de esta página es parte de un proyecto académico.</li>
+            </ul>
+        </div>
+    </div>
+
+    <button id="chatbot-toggle-btn">💬</button>
+    <div id="chatbot-container" class="chatbot-container">
+        <div class="chatbot-header">
+            <span>Asistente Virtual Misoku</span>
+            <button class="chatbot-close-btn">×</button>
+        </div>
+        <div class="chatbot-messages">
+            <div class="message bot">¡Hola! Soy Misoku, tu asistente virtual. ¿En qué puedo ayudarte hoy?</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Escribe tu mensaje..." id="user-input">
+            <button id="send-btn">➤</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+
+</body>
+
+</html>
